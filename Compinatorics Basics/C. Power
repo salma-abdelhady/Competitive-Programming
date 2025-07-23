@@ -1,0 +1,44 @@
+// https://codeforces.com/group/9QrbarK7qH/contest/618952/problem/C
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+#define int    long long
+#define vi     vector<int>
+#define pii    pair<int, int>
+#define all(v) v.begin(), v.end()
+#define dpp(arr,val) memset(arr,val,sizeof(arr))
+template<typename T> ostream& operator<<(ostream& os, vector<T>& v){for (auto& i : v) os << i << ' ';return os;}
+template<typename T> istream& operator>>(istream& is, vector<T>& v){for (auto& i : v) is >> i;return is;}
+void FastIO(){ios_base::sync_with_stdio(false);cin.tie(nullptr);}
+void UseFile(){freopen("input.in", "r", stdin);freopen("output.out", "w", stdout);}
+const int mod = 1000000007;
+const int sz = 1e5+10;
+
+// O(log n)
+int power(int k, int n){
+    int ret = 1;
+    k = k % mod;
+    if(k == 0) return 0;
+    while(n > 0){
+        if(n & 1) ret = (ret * k) % mod;
+        n = n >> 1;
+        k = (k * k) % mod;
+    }
+    return ret;
+}
+void solve(){
+    int k, n; cin >> k >> n;
+
+    cout << power(k,n);
+}
+
+int32_t main()
+{
+    FastIO();
+    //UseFile();
+    solve();
+    return 0;
+}
+
